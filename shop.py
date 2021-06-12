@@ -153,13 +153,13 @@ class Shop:
         shop = Shop(name of the shop)
 
     to make a seller:
-        s = Seller(string+firstname , string_lastname , string_phonenumber_11numbers , sring_email , integer_distance_from_main_shop_in_meters)
+        s = Seller(string_firstname , string_lastname , string_phonenumber_11numbers , sring_email , integer_distance_from_main_shop_in_meters)
         +you can add an address with       ## s.Address = the address ##
         +
 
 
     to make a customer:
-        c = Customer(string+firstname , string_lastname , string_phonenumber_11numbers , sring_email , integer_distance_from_main_shop_in_meters)
+        c = Customer(string_firstname , string_lastname , string_phonenumber_11numbers , sring_email , integer_distance_from_main_shop_in_meters)
         +you can add an address with       ## c.Address = the address ##
 
     to make a product:
