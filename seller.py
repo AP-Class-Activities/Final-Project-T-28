@@ -24,7 +24,7 @@ class Seller:
             raise ValueError('enter phone number correctlly!')
         self.__email=email
         self.__address=[]
-        self.__vallet=0
+        self.__wallet=0
         self.__products=[]
         if Seller.__isInt(distance) == True:
             self.__distance=distance
@@ -43,8 +43,8 @@ class Seller:
 
 
     def __isub__(self,amount):
-        self.__vallet -= amount
-        return self.__vallet
+        self.__wallet -= amount
+        return self.__wallet
 
     #######################
     # setters and getters #
@@ -118,15 +118,9 @@ class Seller:
         self.__products.append(newproduct)
 
     @property
-    def Vallet(self):
-        return self.__vallet
+    def Wallet(self):
+        return self.__wallet
 
-    @Vallet.setter
-    def Vallet(self,amount):
-        if amount <= self.__vallet:
-                self.__vallet -= amount
-        else:
-            raise Exception('entered amount is more than your balance!')
 
     #                      #
     ########################
@@ -137,7 +131,7 @@ class Seller:
     def __str__(self): 
         s = '\n\n______________________________________________________________________________________________________\n\n'
         s += 'Username: {} | fullname: {} {} |  phone: {} | email: {} | balance: {} | distance: {}'\
-            .format(self.Username,self.Firstname, self.Lastname, self.Phone, self.Email, self.Vallet,self.Distance)
+            .format(self.Username,self.Firstname, self.Lastname, self.Phone, self.Email, self.Wallet,self.Distance)
         s += '\naddress:\n {}'.format(self.Address)
         s += '\n\n____________________________________________products___________________________________________________\n\n'        
         for i in self.Products:
