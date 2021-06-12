@@ -32,19 +32,34 @@ class Seller:
             raise ValueError('enter integers as distance!')
 
         Seller.__slusername+=1
-
+    ##################
+    # helper methods #
     def __isInt(x):
         try: 
             int(x)
             return True
         except:
             return False
+        
+     def __wallet_transactions(self,add_or_sub,amount):
+        if add_or_sub == 'add':
+            self.__wallet += amount
+        elif add_or_sub == 'sub':
+            self.__wallet -= amount
 
 
+    def add_to_wallet(self,amount):
+        self.__wallet_transactions('add',amount)
 
-    def __isub__(self,amount):
-        self.__wallet -= amount
-        return self.__wallet
+    def sub_from_wallet(self,amount):
+        if self.__wallet >= amount:
+            self.__wallet_transactions('sub',amount)
+        else:
+            raise ValueError('entered amount is more than your balance')
+
+    ######################
+
+    
 
     #######################
     # setters and getters #
