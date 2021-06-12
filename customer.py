@@ -32,8 +32,8 @@ class Customer:
 
         Customer.__cuusername+=1
 
-    #############################################################
-    # helper method to check if a string is all made of integers#
+    ##################
+    # helper methods #
     def __isInt(x):
         try: 
             int(x)
@@ -41,6 +41,22 @@ class Customer:
         except:
             return False
 
+    def __wallet_transactions(self,add_or_sub,amount):
+        if add_or_sub == 'add':
+            self.__wallet += amount
+        elif add_or_sub == 'sub':
+            self.__wallet -= amount
+
+
+    def add_to_wallet(self,amount):
+        self.__wallet_transactions('add',amount)
+
+    def sub_from_wallet(self,amount):
+        if self.__wallet >= amount:
+            self.__wallet_transactions('sub',amount)
+        else:
+            raise ValueError('entered amount is more than your balance')
+            
     ########################
     
     
@@ -140,12 +156,6 @@ class Customer:
 
     #                          #
     ############################
-
-    def __iadd__(self,amount):
-        self.__wallet += amount
-
-    def __isub__(self,amount):
-        self.__wallet -= amount
 
 
 
