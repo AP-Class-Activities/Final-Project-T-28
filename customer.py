@@ -24,7 +24,7 @@ class Customer:
         self.__favorites=[]
         self.__shoppinglist=[]
         self.__boughtproducts=[]
-        self.__vallet=0
+        self.__wallet=0
         if Customer.__isInt(distance) == True:
             self.__distance=distance
         else:
@@ -126,18 +126,8 @@ class Customer:
     
 
     @property
-    def Vallet(self):
-        return self.__vallet
-
-    @Vallet.setter
-    def Vallet(self,transaction,amount):
-        if transaction == 'add':
-            self.__vallet += amount
-        else:
-            if amount <= self.__vallet:
-                self.__vallet -= amount
-            else:
-                raise Exception('entered amount is more than your balance!')
+    def Wallet(self):
+        return self.__wallet
 
 
     @property
@@ -152,17 +142,17 @@ class Customer:
     ############################
 
     def __iadd__(self,amount):
-        self.__vallet += amount
+        self.__wallet += amount
 
     def __isub__(self,amount):
-        self.__vallet -= amount
+        self.__wallet -= amount
 
 
 
     def __str__(self): 
         s = '\n\n______________________________________________________________________________________________________\n\n'
         s += 'fullname: {} {} |  phone: {} | email: {} | balance: {}'\
-            .format(self.Firstname, self.Lastname, self.Phone, self.Email, self.Vallet)
+            .format(self.Firstname, self.Lastname, self.Phone, self.Email, self.Wallet)
         s += '\n\n____________________________________________addresses___________________________________________________\n\n'
         for i in self.Address:
             s += '%s\n'%(i) 
